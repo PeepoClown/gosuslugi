@@ -1,0 +1,49 @@
+version: '3.7'
+services:
+  mydocs:
+    build: ./mydocs
+    image: mydocs
+    container_name: mydocs-container
+    ports:
+      - 8081:8080
+    restart: on-failure
+    networks:
+      - gosuslugi-network
+    depends_on:
+      - postgres
+
+  departs-coop:
+    build: ./departs-coop
+    image: departs-coop
+    container_name: departs-coop-container
+    ports:
+      - 8082:8080
+    restart: on-failure
+    networks:
+      - gosuslugi-network
+    depends_on:
+      - mydocs
+    links:
+      - mydocs:mydocs
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - pg_data:/var/lib/postgresql
+    environment:
+      - POSTGRES_USER=dev
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=postgres
+    networks:
+      - gosuslugi-network
+
+volumes:
+  pg_data:
+
+networks:
+  gosuslugi-network:
+    driver: bridge

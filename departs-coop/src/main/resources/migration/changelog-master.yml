@@ -1,0 +1,3 @@
+databaseChangeLog:
+  - include:
+      file: src/main/resources/migration/changelog/v1/changelog-v1.yml

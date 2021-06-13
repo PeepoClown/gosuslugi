@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      file: src/main/resources/migration/changelog/v1/changelog-v1_create_type.sql
+  - include:
+      file: src/main/resources/migration/changelog/v1/changelog-v1_create_department.sql
+  - include:
+      file: src/main/resources/migration/changelog/v1/changelog-v1_create_status.sql
+  - include:
+      file: src/main/resources/migration/changelog/v1/changelog-v1_create_employee.sql
+  - include:
+      file: src/main/resources/migration/changelog/v1/changelog-v1_create_declaration.sql
+  - include:
+      file: src/main/resources/migration/changelog/v1/changelog-v1_init_tables.sql
