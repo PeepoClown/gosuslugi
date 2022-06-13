@@ -4,5 +4,6 @@ import com.example.project.entity.Department;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DepartmentRepository extends CommonDirectoriesRepository<Department> {
+public interface DepartmentRepository
+        extends CommonDirectoriesRepository<Department> {
 }

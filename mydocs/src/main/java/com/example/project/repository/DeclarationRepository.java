@@ -10,7 +10,9 @@ import org.springframework.stereotype.Repository;
 import java.util.Collection;
 
 @Repository
-public interface DeclarationRepository extends CrudRepository<Declaration, Long> {
+public interface DeclarationRepository
+        extends CrudRepository<Declaration, Long> {
+
     Declaration findByNumber(String number);
 
     @Query("SELECT d FROM Declaration d WHERE d.passport = :passport")

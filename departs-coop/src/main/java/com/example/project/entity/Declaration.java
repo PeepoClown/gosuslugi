@@ -1,18 +1,19 @@
 package com.example.project.entity;
 
-import lombok.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.util.Random;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
+@Data
 @Entity
-@SequenceGenerator(initialValue = 1, allocationSize = 1, name = "seq_gen", sequenceName = "declaration_id_seq")
+@EqualsAndHashCode(callSuper = true)
+@SequenceGenerator(allocationSize = 1, name = "seq_gen", sequenceName = "declaration_id_seq")
 @Table(name = "declaration")
 public class Declaration extends AbstractEntity {
     @Column(name = "number", unique = true, nullable = false)

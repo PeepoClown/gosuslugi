@@ -15,7 +15,8 @@ import org.springframework.stereotype.Component;
 import java.util.Collections;
 
 @Component
-public class AuthProvider implements AuthenticationProvider {
+public class AuthProvider
+        implements AuthenticationProvider {
     private final EmployeeRepository employeeRepository;
     private final PasswordEncoder passwordEncoder;
 

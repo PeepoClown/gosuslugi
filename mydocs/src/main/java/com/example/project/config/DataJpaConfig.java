@@ -18,9 +18,9 @@ import java.beans.PropertyVetoException;
 import java.util.Properties;
 
 @Configuration
-@EnableJpaRepositories(basePackages = {"com.example.project.repository"})
 @EnableTransactionManagement
 @PropertySource("classpath:application.properties")
+@EnableJpaRepositories(basePackages = {"com.example.project.repository"})
 public class DataJpaConfig {
     private static final String PROP_DATABASE_DRIVER = "c3p0.driverClass";
     private static final String PROP_DATABASE_PASSWORD = "c3p0.password";

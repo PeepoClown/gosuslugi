@@ -1,21 +1,21 @@
 package com.example.project.entity;
 
 import com.example.project.entity.enums.DepartmentCode;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.Data;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
+@Data
 @Entity
 @Table(name = "department")
-public class Department implements Serializable {
+public class Department {
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
     private Long id;
 
@@ -25,27 +25,7 @@ public class Department implements Serializable {
     @Column(name = "label")
     private String label;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public DepartmentCode getCode() {
         return code.equals("DEP-PFR") ? DepartmentCode.DEP_PFR : DepartmentCode.DEP_FNS;
-    }
-
-    public void setCode(DepartmentCode code) {
-        this.code = code.getValue();
-    }
-
-    public String getLabel() {
-        return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
     }
 }

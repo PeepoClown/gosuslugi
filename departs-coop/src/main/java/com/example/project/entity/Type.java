@@ -1,19 +1,18 @@
 package com.example.project.entity;
 
-import com.example.project.entity.enums.TypeCode;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.Data;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
+@Data
 @Entity
 @Table(name = "type")
-public class Type implements Serializable {
+public class Type {
     @Id
     @GeneratedValue(strategy= GenerationType.SEQUENCE)
     @Column(name = "id")
@@ -24,28 +23,4 @@ public class Type implements Serializable {
 
     @Column(name = "label")
     private String label;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public TypeCode getCode() {
-        return code.equals("DOC-PFR") ? TypeCode.DOC_PFR : TypeCode.DOC_FNS;
-    }
-
-    public void setCode(TypeCode code) {
-        this.code = code.getValue();
-    }
-
-    public String getLabel() {
-        return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
 }

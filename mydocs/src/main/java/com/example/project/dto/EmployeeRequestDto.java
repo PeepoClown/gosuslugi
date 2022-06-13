@@ -1,15 +1,11 @@
 package com.example.project.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-import java.io.Serializable;
-
+@Data
 @AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@ToString
-public class EmployeeRequestDto implements Serializable {
+public class EmployeeRequestDto {
     private String initials;
     private String login;
     private String password;

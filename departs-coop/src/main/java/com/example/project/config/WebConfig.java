@@ -13,11 +13,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
 
-@Configuration
-@ComponentScan("com.example.project.controller")
 @EnableWebMvc
+@Configuration
 @EnableScheduling
+@ComponentScan("com.example.project.controller")
 public class WebConfig implements WebMvcConfigurer {
+
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         converters.add(new MappingJackson2HttpMessageConverter());

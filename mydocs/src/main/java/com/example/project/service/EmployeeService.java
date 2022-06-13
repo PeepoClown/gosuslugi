@@ -8,9 +8,14 @@ import com.example.project.exception.IncorrectCredentialsException;
 import com.example.project.exception.NotFoundException;
 
 public interface EmployeeService {
+
     Employee create(EmployeeRequestDto dto) throws AlreadyExistException;
+
     void authenticate(EmployeeLoginDto dto) throws IncorrectCredentialsException;
+
     Iterable<Employee> getAll();
+
     Employee getOne(String login) throws NotFoundException;
+
     void delete(String login) throws NotFoundException;
 }

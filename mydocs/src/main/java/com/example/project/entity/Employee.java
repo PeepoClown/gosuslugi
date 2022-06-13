@@ -1,17 +1,19 @@
 package com.example.project.entity;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import java.time.LocalDateTime;
+import javax.persistence.Column;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@Entity
-@SequenceGenerator(initialValue = 1, allocationSize = 1, name = "seq_gen", sequenceName = "employee_id_seq")
+@EqualsAndHashCode(callSuper = true)
+@SequenceGenerator(allocationSize = 1, name = "seq_gen", sequenceName = "employee_id_seq")
 @Table(name = "employee")
 public class Employee extends AbstractEntity {
     @Column(name = "login", unique = true, nullable = false)

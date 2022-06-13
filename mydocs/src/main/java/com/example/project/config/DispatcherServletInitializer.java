@@ -10,7 +10,8 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletRegistration;
 
 @ComponentScan(basePackages = "com.example.project")
-public class DispatcherServletInitializer implements WebApplicationInitializer {
+public class DispatcherServletInitializer
+        implements WebApplicationInitializer {
     private static final String DISPATCHER_SERVLET_NAME = "dispatcher";
     private static final String DISPATCHER_SERVLET_MAPPING = "/";
 

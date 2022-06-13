@@ -1,17 +1,20 @@
 package com.example.project.entity;
 
-import com.example.project.entity.enums.StatusCode;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@Entity
 @Table(name = "status")
-public class Status implements Serializable {
+public class Status {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
@@ -22,29 +25,4 @@ public class Status implements Serializable {
 
     @Column(name = "label")
     private String label;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public StatusCode getCode() {
-        return code.equals("NEW") ? StatusCode.NEW :
-                code.equals("PROCESSING") ? StatusCode.PROCESSING : StatusCode.COMPLETED;
-    }
-
-    public void setCode(StatusCode code) {
-        this.code = code.getValue();
-    }
-
-    public String getLabel() {
-        return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
 }
